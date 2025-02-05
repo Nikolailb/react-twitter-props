@@ -2,10 +2,10 @@ import React from "react";
 import ProfileIcon from "./ProfileIcon";
 import TweetAction from "./TweetAction";
 
-function Tweet({ tweet, index }) {
+function Tweet({ tweet }) {
   return (
     <>
-      <article className="tweet" key={index}>
+      <article className="tweet">
         <ProfileIcon profileImage={tweet.profileImage} />
 
         <div className="tweet-content">
