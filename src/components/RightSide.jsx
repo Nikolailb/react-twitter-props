@@ -6,13 +6,13 @@ import FollowBlock from "./FollowBlock";
 import imgElon from "../assets/images/elon.jpg";
 import imgZuck from "../assets/images/zuck.jpg";
 
-function RightSide() {
+function RightSide({ setSearch}) {
   return (
     <>
       <aside className="right-side">
         <div className="search-section">
           <i className="fa-solid fa-magnifying-glass search-icon"></i>
-          <input className="search" type="text" placeholder="Search Twitter" />
+          <input className="search" type="text" placeholder="Search Twitter" onChange={(e) => setSearch(e.target.value)}/>
         </div>
         <Widget>
           <div className="widget-grid">

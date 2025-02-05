@@ -17,6 +17,11 @@ function App() {
   const [loggedInUser] = useState(user);
   const [tweets, setTweets] = useState(initialTweets);
   const [createTweetContent, setCreateTweetContent] = useState("");
+  const [search, setSearch] = useState("");
+
+	let filteredTweets = tweets
+	if (search)
+		filteredTweets = filteredTweets.filter(tweet => tweet.content.toUpperCase().includes(search.toUpperCase()))
 
   const addTweet = (e) => {
     e.preventDefault();
@@ -39,12 +44,12 @@ function App() {
       <LeftSide loggedInUser={loggedInUser} />
       <MainContent
         loggedInUser={loggedInUser}
-        tweets={tweets}
+        tweets={filteredTweets}
         addTweet={addTweet}
         createTweetContent={createTweetContent}
         setCreateTweetContent={setCreateTweetContent}
       />
-      <RightSide />
+      <RightSide setSearch={setSearch}/>
     </div>
   );
 }
