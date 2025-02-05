@@ -1,5 +1,6 @@
 import Tweet from "./Tweet";
 import ProfileIcon from "./ProfileIcon";
+import TweetForm from "./TweetForm";
 
 
 function MainContent({ loggedInUser, tweets, addTweet, setCreateTweetContent, createTweetContent}) {
@@ -9,8 +10,8 @@ function MainContent({ loggedInUser, tweets, addTweet, setCreateTweetContent, cr
         <div className="top-bar">
           <h2 className="title">Home</h2>
         </div>
-
-        <div className="create-tweet">
+        <TweetForm loggedInUser={loggedInUser} createTweetContent={createTweetContent} setCreateTweetContent={setCreateTweetContent} addTweet={addTweet}/>
+        {/* <div className="create-tweet">
           <form onSubmit={addTweet}>
             <ProfileIcon
               profileImage={loggedInUser.profileImage}
@@ -47,7 +48,7 @@ function MainContent({ loggedInUser, tweets, addTweet, setCreateTweetContent, cr
               </button>
             </div>
           </form>
-        </div>
+        </div> */}
 
         <div className="show-more-tweets">
           <p>Show 35 Tweets</p>
