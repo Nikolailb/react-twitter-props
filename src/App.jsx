@@ -20,8 +20,23 @@ function App() {
   const [search, setSearch] = useState("");
 
 	let filteredTweets = tweets
-	if (search)
-		filteredTweets = filteredTweets.filter(tweet => tweet.content.toUpperCase().includes(search.toUpperCase()))
+	if (search) {
+    setSearch(v => v.toUpperCase())
+    let res = []
+    filteredTweets.forEach(tweet => {
+      let values = [
+        tweet.content,
+        tweet.name,
+        tweet.handle,
+      ]
+      if (tweet.article) {
+        values.push(tweet.article.content, tweet.article.title, tweet.article.site)
+      }
+      if (values.join(" ").toUpperCase().includes(search))
+        res.push(tweet)
+    })
+		filteredTweets = res
+  }
 
   const addTweet = (e) => {
     e.preventDefault();
