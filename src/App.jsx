@@ -36,6 +36,8 @@ function App() {
 
   const addTweet = (e) => {
     e.preventDefault();
+    let content = createTweetContent.trim()
+    if (content.length === 0) return 
     setTweets([
       {
         ...loggedInUser,
