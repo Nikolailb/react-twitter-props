@@ -12,7 +12,7 @@ function RightSide({ setSearch}) {
       <aside className="right-side">
         <div className="search-section">
           <i className="fa-solid fa-magnifying-glass search-icon"></i>
-          <input className="search" type="text" placeholder="Search Twitter" onChange={(e) => setSearch(e.target.value)}/>
+          <input className="search" type="text" placeholder="Search Twitter" onChange={(e) => setSearch(e.target.value.toUpperCase())}/>
         </div>
         <Widget>
           <div className="widget-grid">
@@ -39,12 +39,12 @@ function RightSide({ setSearch}) {
           <FollowBlock
             profileImage={imgElon}
             name={"Elon Musk"}
-            handle={"elonmusk"}
+            handle={"@elonmusk"}
           />
           <FollowBlock
             profileImage={imgZuck}
             name={"Mark Zuckerberg"}
-            handle={"markzuckerberg"}
+            handle={"@markzuckerberg"}
           />
         </Widget>
       </aside>

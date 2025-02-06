@@ -1,10 +1,16 @@
 import ProfileIcon from "./ProfileIcon";
 
-function TweetForm({ loggedInUser, createTweetContent, setCreateTweetContent, addTweet }) {
+function TweetForm({
+  loggedInUser,
+  createTweetContent,
+  setCreateTweetContent,
+  addTweet,
+}) {
+  let formReference;
   return (
     <>
       <div className="create-tweet">
-        <form onSubmit={addTweet}>
+        <form onSubmit={addTweet} ref={(el) => (formReference = el)}>
           <ProfileIcon
             profileImage={loggedInUser.profileImage}
             isAvatar={true}
@@ -17,6 +23,13 @@ function TweetForm({ loggedInUser, createTweetContent, setCreateTweetContent, ad
               placeholder="What is happening?!"
               value={createTweetContent}
               onChange={(e) => setCreateTweetContent(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key == "Enter" && e.shiftKey == false && createTweetContent.length > 0) {
+                  addTweet(e);
+                } else if (e.key == "Enter" && createTweetContent.length == 0) {
+                  e.preventDefault();
+                }
+              }}
             ></textarea>
           </div>
 

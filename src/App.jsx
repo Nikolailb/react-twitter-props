@@ -6,9 +6,6 @@ import initialTweets from "./assets/data/tweets.js";
 // The user that we're pretending is signed in
 import user from "./assets/data/user.js";
 
-import MenuItem from "./components/MenuItem.jsx";
-import ProfileIcon from "./components/ProfileIcon.jsx";
-import Tweet from "./components/Tweet.jsx";
 import RightSide from "./components/RightSide.jsx";
 import LeftSide from "./components/LeftSide.jsx";
 import MainContent from "./components/MainContent.jsx";
@@ -21,7 +18,6 @@ function App() {
 
 	let filteredTweets = tweets
 	if (search) {
-    setSearch(v => v.toUpperCase())
     let res = []
     filteredTweets.forEach(tweet => {
       let values = [
@@ -52,6 +48,7 @@ function App() {
       },
       ...tweets,
     ]);
+    setCreateTweetContent("")
   };
 
   return (

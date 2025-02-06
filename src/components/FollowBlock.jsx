@@ -5,11 +5,11 @@ function FollowBlock({ profileImage, name, handle }) {
   return (
     <>
       <div className="follow-block">
-        <ProfileIcon profileImage={profileImage} />
+        <ProfileIcon profileImage={profileImage}/>
 
         <div className="content">
           <h4>{name}</h4>
-          <h5>@{handle}</h5>
+          <h5>{handle}</h5>
         </div>
 
         <div className="action">
